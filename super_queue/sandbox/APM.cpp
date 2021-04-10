@@ -7,7 +7,7 @@ typedef pair<int, ll> ii;
 signed main(){
 	ios_base::sync_with_stdio(false);cin.tie(NULL);
     int qs;cin >> qs;
-    queue<int> q;
+    queue<ii> q;
     while(qs --){
         char c;cin >> c;
         if(c == '?'){
@@ -15,18 +15,24 @@ signed main(){
                 cout << "empty\n";
                 continue;
             }
-            cout << q.front() << "\n";
+            cout << q.front().first << "\n";
             continue;
         }
         if(c == '+'){
             int d, t;cin >> d >> t;
-            while(t --)
-                q.push(d);
+            if(!q.empty() && q.back().first == d)
+                q.back().second += t;
+            else
+                q.push(ii(d, t));
         }
         if(c == '-'){
             int t;cin >> t;
-            while(t --)
+            while(t && q.front().second <= t){
+                t -= q.front().second;
                 q.pop();
+            }
+            if(t)
+                q.front().second -= t;
         }
     }
 }
