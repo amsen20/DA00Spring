@@ -54,7 +54,7 @@
 #endif
 using namespace std;
 
-const int MAXN = 1e6, MAXM = 1e6;
+const int MAXN = 1e6, MAXM = 1e6, MAXQ = 1e4;
 
 int main(int argc , char* argv[]){
 	registerValidation(argc, argv);
@@ -68,7 +68,7 @@ int main(int argc , char* argv[]){
     }
     inf.readInt(1, MAXM);
     inf.readEoln();
-    int q = inf.readInt(1, MAXN);
+    int q = inf.readInt(1, MAXQ);
     inf.readEoln();
     for(int i = 0; i < q; i++)
     {
