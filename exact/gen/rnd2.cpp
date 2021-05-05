@@ -85,7 +85,11 @@ int32_t main(int argc , char* argv[]){
     cout << n << ' ' << c << endl;
     for(int i = 0; i < n; i++)
     {
-        cout << a[i] << ' ';
+        cout << a[i];
+        if(i < n - 1)
+        {
+            cout << ' ';
+        }
     }
     cout << endl;
 

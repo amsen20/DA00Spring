@@ -65,7 +65,10 @@ int main(int argc , char* argv[]){
     for(int i = 0; i < n; i++)
     {
         inf.readInt(1, MAXM);
-        inf.readSpace();
+        if(i < n - 1)
+        {
+            inf.readSpace();
+        }
     }
     inf.readEoln();
     inf.readEof();
