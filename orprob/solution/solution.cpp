@@ -78,7 +78,7 @@ int32_t main()
     {
         cin >> a[i];
     }
-    dp[0] = max(dp[0], 2 * dp[0]);
+    dp[0] = max(a[0], 2 * a[0]);
     s[0] = a[0];
     for(int i = 1; i < n; i++)
     {
