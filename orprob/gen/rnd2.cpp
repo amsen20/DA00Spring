@@ -63,10 +63,26 @@ int main(int argc , char* argv[]){
     int mxa = atoi(argv[4]);
     int n = rnd.next(mnn, mxn);
     cout << n << endl;
+    int id1 = rnd.next(0, n - 3);
+    int id2 = rnd.next(id1, n - 2);
+    int sd = rnd.next(0, 100);
+    if(sd & 1)
+    {
+        swap(id1, id2);
+    }
     for(int i = 0; i < n - 1; i++)
     {
-        int tmp = rnd.next(mna, mxa);
-        cout << (1 << tmp) << ' ';
+        if(i == id1)
+        {
+            cout << (1 << mxa) + 1 << ' ';
+            continue ; 
+        }
+        if(i == id2)
+        {
+            cout << (1 << mxa) + (1 << (mxa - 1)) << ' ';
+            continue ;
+        }
+        cout << rnd.next(mna, mxa) << ' ';
     }
     cout << rnd.next(mna, mxa);
     cout << endl;
