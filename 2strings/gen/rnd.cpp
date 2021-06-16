@@ -1,104 +1,84 @@
 #include "testlib.h"
-#include <algorithm>
-#include <bitset>
-#include <complex>
-#include <deque>
-#include <exception>
-#include <fstream>
-#include <functional>
-#include <iomanip>
-#include <ios> 
-#include <iosfwd>
-#include <iostream>
-#include <istream>
-#include <iterator>
-#include <limits>
-#include <list>
-#include <locale>
-#include <map>
-#include <memory>
-#include <new>
-#include <numeric>
-#include <ostream>
-#include <queue>
-#include <set>
-#include <sstream>
-#include <stack>
-#include <stdexcept>
-#include <streambuf>
-#include <string>
-#include <typeinfo>
-#include <utility>
-#include <valarray>
-#include <vector>
-#if __cplusplus >= 201103L
-#include <array>
-#include <atomic>
-#include <chrono>
-#include <condition_variable>
-#include <forward_list>
-#include <future>
-#include <initializer_list>
-#include <mutex>
-#include <random>
-#include <ratio>
-#include <regex>
-#include <scoped_allocator>
-#include <system_error>
-#include <thread>
-#include <tuple>
-#include <typeindex>
-#include <type_traits>
-#include <unordered_map>
-#include <unordered_set>
-#endif
+#include<bits/stdc++.h>
+
 using namespace std;
-int maxn = 100100;
+
+string str(int n){
+    string ret;
+    while(n){
+        int d = n%10;
+        n /= 10;
+        ret.push_back(d + '0');
+    }
+    reverse(ret.begin(), ret.end());
+    return ret;
+}
+
+string gens(int len, char c){
+    string pattern = "[a-";
+    pattern.push_back(c);
+    pattern += "]{";
+    pattern += str(len);
+    pattern += "}";
+    return rnd.next(pattern);
+}
+
+pair<string, string> genss(int n, int m, int c){
+    string t = gens(m, c);
+    int cnt = m-n;
+    set<int> st;
+    while(cnt --){
+        while(true){
+            int ind = rnd.next(m);
+            if(st.count(ind))
+                continue;
+            st.insert(ind);
+            break;
+        }
+    }
+    string s;
+    for(int i=0 ; i<m ; i++)
+        if(!st.count(i))
+            s.push_back(t[i]);
+    return {s, t};
+}
+
+void gen_yes(int n, int m, char c){
+    auto P = genss(n, m, c);
+    cout << n << " " << m << "\n";
+    cout << P.first << "\n" << P.second << "\n";
+}
+
+void gen_no(int n, int m, char c){
+    auto P = genss(n, m, c);
+    string s = P.first, t = P.second;
+    // add noise to s
+    int cnt = rnd.wnext(1, n, -1);
+    while(cnt --){
+        int ind = rnd.next(n);
+        while(true){
+            char ch = rnd.next('a', c);
+            if(ch == s[ind])
+                continue;
+            s[ind] = ch;
+            break;
+        }
+    }
+    cout << n << " " << m << "\n";
+    cout << s << "\n" << t << "\n";
+}
 
 int main(int argc , char* argv[]){
     registerGen(argc, argv , 1);
-    int mnn = atoi(argv[1]);
-    int mxn = atoi(argv[2]);
-    int mna = atoi(argv[3]);
-    int mxa = atoi(argv[4]);
-    int n = rnd.next(mnn, mxn);
-    int a[maxn];
-    int b[maxn];
-    map <int, bool> mp;
-    cout << n << endl;
-    for(int i = 0; i < n; i++)
-    {
-        int x = rnd.next(mna, mxa);
-        while(mp[x])
-        {
-            x = rnd.next(mna, mxa);
-        }
-        mp[x] = 1;
-        a[i] = x;
-        b[i] = a[i];
-        cout << x << ' ';
-    }
-    cout << endl;
-    sort(b, b + n);
-    int p = rnd.next(1, n);
-    for(int i = 0; i < p; i++)
-    {
-        cout << b[i] << ' ';
-    }
-    for(int i = n - 1; i >= p; i--)
-    {
-        cout << b[i] << ' ';
-    }
-    cout << endl;
-
+    int t = atoi(argv[1]);
+    int n = atoi(argv[2]);
+    int m = atoi(argv[3]);
+    char c = argv[4][0];
+    cout << t << "\n";
+    while(t --)
+        if(rnd.next(2))
+            gen_yes(n, m, c);
+        else
+            gen_no(n, m, c);
     return 0;
 }
-
-
-
-
-
-
-
-
-
