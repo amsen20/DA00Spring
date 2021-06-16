@@ -20,17 +20,23 @@ string get_pat(int len){
     string pattern = "[a-z]{";
     pattern += str(len);
     pattern += "}";
-    return rnd.next(pattern);
+    return pattern;
 }
 
 int main(int argc , char* argv[]){
 	registerValidation(argc, argv);
     int t = inf.readInt(1, 10);
+    inf.readEoln();
     while(t--){
         int n = inf.readInt(1, MAXN);
+        inf.readSpace();
         int m = inf.readInt(1, MAXN);
+        inf.readEoln();
         ensuref(n <= m, "n should be less than m");
         string s = inf.readToken(get_pat(n));
+        inf.readEoln();
         string t = inf.readToken(get_pat(m));
+        inf.readEoln();
     }
+    inf.readEof();
 }
