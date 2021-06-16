@@ -6,6 +6,6 @@ signed main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);
     int t;cin >> t;
     while(t --)
-        cout << "NO\n";
+        cout << "YES\n";
     return 0;
 }
