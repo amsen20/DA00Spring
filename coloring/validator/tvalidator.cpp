@@ -10,12 +10,12 @@ const int N = 1e5+100;
 int par[N];
 
 int root(int v){
-    return par[v] = (v ? par[v] == v : root(par[v]));
+    return par[v] = (par[v] == v ? v : root(par[v]));
 }
 
 int main(int argc , char* argv[]){
 	registerValidation(argc, argv);
-    char t = inf.readChar('g');
+    char t = inf.readChar('t');
     inf.readSpace();
     int n = inf.readInt(2, N);
     for(int i=0 ; i<n ; i++)
@@ -27,9 +27,9 @@ int main(int argc , char* argv[]){
     inf.readEoln();
     set<ii> st;
     while(m --){
-        int v = inf.readInt(1, n);
+        int v = inf.readInt(1, n);v --;
         inf.readSpace();
-        int u = inf.readInt(1, n);
+        int u = inf.readInt(1, n);u --;
         inf.readEoln();
         ensuref(v != u, "Self loop!");
         int rv = root(v), ru = root(u);

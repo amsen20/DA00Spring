@@ -23,12 +23,12 @@ bool dfs_col(int v, int col){
 
 int main(int argc , char* argv[]){
 	registerValidation(argc, argv);
-    char t = inf.readChar('g');
+    char t = inf.readChar('b');
     inf.readSpace();
     int n = inf.readInt(2, 8);
     ensuref(n%2 == 0, "Odd n!");
     inf.readSpace();
-    int C = inf.readInt(2, 8);
+    int C = inf.readInt(2, 16);
     inf.readSpace();
     int m = inf.readInt(1, n/2*n/2);
     inf.readEoln();
