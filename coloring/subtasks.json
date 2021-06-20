@@ -1,0 +1,20 @@
+{
+	"global_validators": ["validator.cpp"],
+	"subtasks": {
+		"graph": {
+			"index": 0,
+			"score": 30,
+			"validators": ["gvalidator.cpp"]
+		},
+		"bipartite": {
+			"index": 1,
+			"score": 40,
+			"validators": ["bvalidator.cpp"]
+		},
+		"tree": {
+			"index": 2,
+			"score": 30,
+			"validators": ["tvalidator.cpp"]
+		}
+	}
+}
