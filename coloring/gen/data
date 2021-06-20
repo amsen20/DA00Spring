@@ -1,21 +1,10 @@
-@subtask full
-rnd 4 3 6 e
-rnd 5 5 10 c a
-rnd 5 5 10 c b
-rnd 5 5 10 j a
-rnd 5 5 10 j b
-rnd 5 5 10 z a
-rnd 5 5 10 z b
-rnd 10 100 200 c a
-rnd 10 100 200 c b
-rnd 10 100 200 j a
-rnd 10 100 200 j b
-rnd 10 100 200 z a
-rnd 10 100 200 z b
-rnd 5 50000 80000 c a
-rnd 5 50000 80000 c b
-rnd 5 50000 80000 j a
-rnd 5 50000 80000 j b
-rnd 5 50000 80000 z a
-rnd 5 50000 80000 z b
-rnd 3 50000 100000 z b
+@subtask graph
+graph 5 3 5
+graph 8 8 8
+graph 8 8 9
+graph 8 8 10
+graph 8 8 12
+graph 8 8 15
+graph 8 8 16
+graph 8 8 20
+graph 8 8 25
