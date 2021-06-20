@@ -8,3 +8,20 @@ graph 8 8 15
 graph 8 8 16
 graph 8 8 20
 graph 8 8 25
+@subtask bipartite
+bipartite 4 3 3
+bipartite 4 3 3 a
+bipartite 8 16 8
+bipartite 8 16 9
+bipartite 8 16 10
+bipartite 8 16 11
+bipartite 8 16 15
+@subtask tree
+tree 5 6 4
+tree 1000 1000 999
+tree 2000 2000 1999
+tree 3000 3000 2999
+tree 4000 4000 3999
+tree 80000 80000 79999
+tree 70000 70000 69999
+tree 90000 90000 89999
