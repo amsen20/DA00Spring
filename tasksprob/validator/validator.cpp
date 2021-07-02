@@ -54,7 +54,7 @@
 #endif
 using namespace std;
 
-const int MAXN = 1e5, MAXM = 1e9;
+const int MAXN = 1e5, MAXM = 1e4;
 
 int main(int argc , char* argv[]){
 	registerValidation(argc, argv);

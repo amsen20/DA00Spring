@@ -84,13 +84,15 @@ int32_t main()
         v.push_back(make_pair((long double)(t[i] / w[i]), i));
     }
     sort(v.begin(), v.end());
-    int ans = 0;
-    int nt = 0;
+    long long ans = 0;
+    long long nt = 0;
     for(auto u : v)
     {
         nt += t[u.second];
         ans += nt * w[u.second];
+	//cerr << ans << ", " << nt << "\n";
     }
+    assert(ans>0);
     cout << ans << endl;
     return 0;
 }
